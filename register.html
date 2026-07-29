@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Register</title>
+
+<link rel="stylesheet" href="project.css">
+
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+<style>
+	/* Page-specific layout fixes for register page */
+	.scene { width: min(1100px, 94vw); margin: 36px auto; }
+	.login-layout { grid-template-columns: 1fr 480px !important; gap:28px; align-items:center; }
+	.panel-copy { padding: 42px; display:flex; flex-direction:column; justify-content:center; }
+	.wrapper { width:480px; padding:36px; }
+	.wrapper .logo { width:72px; height:72px }
+	@media (max-width:900px){
+		.login-layout{grid-template-columns:1fr !important;}
+		.panel-copy{order:2;padding:22px}
+		.wrapper{width:100%;padding:22px}
+		.scene{margin:18px}
+	}
+</style>
+
+</head>
+
+<body>
+
+	<div class="bg-orb orb-1"></div>
+	<div class="bg-orb orb-2"></div>
+	<div class="overlay"></div>
+
+	<div class="scene">
+		<div class="login-layout">
+			<div class="panel-copy">
+				<span class="eyebrow">Join PlaceHub</span>
+				<h2>Create your student account</h2>
+				<p>Get access to company listings, application tracking, and interview schedules. Securely manage your placement profile.</p>
+
+				<div class="feature-list">
+					<span class="feature-chip">Verified Colleges</span>
+					<span class="feature-chip">Secure Profile</span>
+					<span class="feature-chip">Interview Alerts</span>
+				</div>
+			</div>
+
+			<div class="login-shell">
+				<div class="brand-tag">Create Account</div>
+
+				<div class="wrapper">
+
+					<div style="display:flex;align-items:center;gap:12px;margin-bottom:6px;">
+						<div class="logo" style="width:64px;height:64px">
+							<i class='bx bxs-graduation'></i>
+						</div>
+						<div>
+							<h1 style="font-size:20px;margin:0">PlaceHub</h1>
+							<div style="font-size:13px;color:rgba(255,255,255,0.8);">Student Registration</div>
+						</div>
+					</div>
+
+					<!-- OAuth buttons (Google / Microsoft) -->
+					<div style="display:flex;gap:12px;margin:12px 0;">
+						<button type="button" id="googleBtn" class="btn" style="background:#fff;color:#0d47a1;display:flex;align-items:center;gap:10px;justify-content:center;">
+							<!-- Icon can be added in assets/google-mark.svg -->
+							Continue with Google
+						</button>
+						<button type="button" id="msBtn" class="btn" style="background:#fff;color:#1f3b8f;display:flex;align-items:center;gap:10px;justify-content:center;">
+							Continue with Microsoft
+						</button>
+					</div>
+
+					<form id="registerForm" action="home.html" method="get" novalidate>
+
+						<div class="input-box">
+							<i class='bx bx-user'></i>
+							<input name="fullname" type="text" placeholder="Full Name" required>
+						</div>
+
+						<div class="input-box">
+							<i class='bx bx-envelope'></i>
+							<input name="email" type="email" placeholder="College Email" required>
+						</div>
+
+						<div class="input-box">
+							<i class='bx bx-building'></i>
+							<input name="department" type="text" placeholder="Department" required>
+						</div>
+
+						<div class="input-box">
+							<i class='bx bx-id-card'></i>
+							<input name="regno" type="text" placeholder="Register Number" required>
+						</div>
+
+						<div class="input-box">
+							<i class='bx bx-lock-alt'></i>
+							<input id="password" name="password" type="password" placeholder="Password" required>
+						</div>
+
+						<div class="input-box">
+							<i class='bx bx-lock-open-alt'></i>
+							<input id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm Password" required>
+						</div>
+
+						<button type="submit" class="btn">Create Account</button>
+
+						<div class="register-link" style="text-align:center;margin-top:18px;">
+							<p style="margin:0;color:rgba(255,255,255,0.85);">Already have an account? <a href="project.html">Login</a></p>
+						</div>
+
+					</form>
+
+					<script>
+						(function(){
+							var form = document.getElementById('registerForm');
+							form.addEventListener('submit', function(e){
+                                e.preventDefault();
+                                var fullname = document.getElementsByName('fullname')[0].value.trim();
+                                var email = document.getElementsByName('email')[0].value.trim();
+                                var department = document.getElementsByName('department')[0].value.trim();
+                                var regno = document.getElementsByName('regno')[0].value.trim();
+                                var password = document.getElementById('password').value.trim();
+                                var confirmPassword = document.getElementById('confirmPassword').value.trim();
+
+                                if(password.length < 8){
+                                    alert('Password must be at least 8 characters.');
+                                    return;
+                                }
+                                if(password !== confirmPassword){
+                                    alert('Passwords do not match.');
+                                    return;
+                                }
+                                if(!fullname || !email || !department || !regno){
+                                    alert('Please complete all fields.');
+                                    return;
+                                }
+
+                                localStorage.setItem('placehub_user', JSON.stringify({username: fullname, email: email, loggedIn: true, ts: Date.now()}));
+                                localStorage.setItem('placehub_user_profile', JSON.stringify({
+                                    fullName: fullname,
+                                    email: email,
+                                    department: department,
+                                    regno: regno,
+                                    jobsApplied: 0,
+                                    resumeProgress: 20
+                                }));
+
+                                window.location.href = 'home.html';
+					<script>
+					(function(){
+						/* OAuth demo helpers (separate from form validation) */
+						var oauthConfig = {
+							google: {
+								authorizeUrl: 'https://accounts.google.com/o/oauth2/v2/auth',
+								clientId: 'YOUR_GOOGLE_CLIENT_ID',
+								scope: 'openid email profile',
+								redirectUri: location.origin + '/oauth_callback.html',
+								responseType: 'code',
+								prompt: 'select_account'
+							},
+							microsoft: {
+								authorizeUrl: 'https://login.microsoftonline.com/common/oauth2/v2.0/authorize',
+								clientId: 'YOUR_MICROSOFT_CLIENT_ID',
+								scope: 'openid email profile offline_access',
+								redirectUri: location.origin + '/oauth_callback.html',
+								responseType: 'code',
+								responseMode: 'query'
+							}
+						};
+
+						function base64Encode(obj){
+							return btoa(unescape(encodeURIComponent(JSON.stringify(obj))));
+						}
+
+						function buildQuery(params){
+							return Object.keys(params).map(function(k){
+								return encodeURIComponent(k)+'='+encodeURIComponent(params[k]);
+							}).join('&');
+						}
+
+						function openOAuthWindow(url, name, w, h){
+							var left = (screen.width/2)-(w/2);
+							var top = (screen.height/2)-(h/2);
+							return window.open(url, name, 'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width='+w+',height='+h+',top='+top+',left='+left);
+						}
+
+					function demoOAuth(provider){
+						localStorage.setItem('oauth_' + provider, JSON.stringify({provider: provider, demo: true, ts: Date.now()}));
+						window.location.href = 'project.html';
+					}
+
+					function startOAuth(provider){
+						var cfg = oauthConfig[provider];
+						if(location.protocol !== 'http:' && location.protocol !== 'https:'){
+							demoOAuth(provider);
+							return;
+						}
+						if(!cfg || cfg.clientId.indexOf('YOUR_')===0){
+							demoOAuth(provider);
+							return;
+						}
+						var state = base64Encode({provider:provider, ts:Date.now()});
+							var params = {
+								client_id: cfg.clientId,
+								redirect_uri: cfg.redirectUri,
+								response_type: cfg.responseType,
+								scope: cfg.scope,
+								state: state
+							};
+							if(cfg.prompt) params.prompt = cfg.prompt;
+							if(cfg.responseMode) params.response_mode = cfg.responseMode;
+
+							var url = cfg.authorizeUrl + '?' + buildQuery(params);
+							var popup = openOAuthWindow(url, 'oauth_'+provider, 600, 700);
+
+							function onMessage(evt){
+								try{
+									var data = evt.data || {};
+									if(data.provider === provider && data.state === state){
+										window.removeEventListener('message', onMessage);
+										popup && popup.close();
+										localStorage.setItem('oauth_'+provider, JSON.stringify(data));
+										alert(provider+' sign-in returned code: '+(data.code || '[no code received]'));
+										window.location.href = 'project.html';
+									}
+								}catch(e){}
+							}
+							window.addEventListener('message', onMessage);
+						}
+
+						document.getElementById('googleBtn').addEventListener('click', function(){ startOAuth('google'); });
+						document.getElementById('msBtn').addEventListener('click', function(){ startOAuth('microsoft'); });
+					})();
+					</script>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

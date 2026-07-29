@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #cdcdcd;
+            color: #383838;
+        }
+
+        /* Header Navigation */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #ffffff;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #323232;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #3b3b3b;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #494848;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-box input {
+            padding: 0.5rem;
+            border-radius: 4px 0 0 4px;
+            border: none;
+            outline: none;
+        }
+
+        .search-box button {
+            padding: 0.5rem 1rem;
+            border-radius: 0 4px 4px 0;
+            border: none;
+            background-color: #f011fc;
+            color: #575757;
+            cursor: pointer;
+        }
+    </style>
+    <title>AnimeStream - Watch Anime Online</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="logo">Anime<span>Stream</span></div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Trending</a></li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="#">My List</a></li>
+            </ul>
+        </nav>
+        <div class="search-box">
+            <input type="text" placeholder="Search anime...">
+            <button>Search</button>
+        </div>
+    </header>
+
+    <!-- Hero Hero Banner Section -->
+    <section class="hero-banner">
+        <div class="hero-content">
+            <span class="trending-tag">#1 Trending</span>
+            <h1>Attack on Titan</h1>
+            <p>Epic dark fantasy anime where humanity fights for survival against gigantic humanoid creatures hidden behind massive walls.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-play">Watch Now</a>
+                <a href="#" class="btn btn-detail">Detail</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Cards Section -->
+    <main class="container">
+        <h2 class="section-title">Trending Shows</h2>
+        <div class="anime-grid">
+            
+            <!-- Card 1 -->
+            <div class="anime-card">
+                <div class="card-img-box">
+                    <img src="https://unsplash.com" alt="Anime Poster">
+                    <span class="episode-tag">Sub | Dub</span>
+                </div>
+                <h3>Demon Slayer</h3>
+                <p>Action, Fantasy</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="anime-card">
+                <div class="card-img-box">
+                    <img src="https://unsplash.com" alt="Anime Poster">
+                    <span class="episode-tag">EP 12</span>
+                </div>
+                <h3>Jujutsu Kaisen</h3>
+                <p>Supernatural, Action</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="anime-card">
+                <div class="card-img-box">
+                    <img src="https://unsplash.com" alt="Anime Poster">
+                    <span class="episode-tag">EP 24</span>
+                </div>
+                <h3>Cyberpunk Cyber</h3>
+                <p>Sci-Fi, Mecha</p>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="anime-card">
+                <div class="card-img-box">
+                    <img src="https://unsplash.com" alt="Anime Poster">
+                    <span class="episode-tag">Movie</span>
+                </div>
+                <h3>Your Name</h3>
+                <p>Romance, Drama</p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 AnimeStream. Built for anime fans everywhere.</p>
+    </footer>
+</body>
+</html>
