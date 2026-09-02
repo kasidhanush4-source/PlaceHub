@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PlaceHub | Placement Management System</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= SIDEBAR ================= -->
+
+<aside class="sidebar">
+
+    <div class="logo">
+        <div class="logo-icon">
+            <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+
+        <div>
+            <h2>Place<span>Hub</span></h2>
+            <p>Placement Portal</p>
+        </div>
+    </div>
+
+    <nav class="sidebar-nav">
+
+        <p class="menu-title">MAIN MENU</p>
+
+        <a href="#" class="nav-link active" data-page="dashboard">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="#" class="nav-link" data-page="students">
+            <i class="fa-solid fa-user-graduate"></i>
+            <span>Students</span>
+        </a>
+
+        <a href="#" class="nav-link" data-page="companies">
+            <i class="fa-solid fa-building"></i>
+            <span>Companies</span>
+        </a>
+
+        <a href="#" class="nav-link" data-page="jobs">
+            <i class="fa-solid fa-briefcase"></i>
+            <span>Job Opportunities</span>
+        </a>
+
+        <a href="#" class="nav-link" data-page="drives">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>Placement Drives</span>
+        </a>
+
+        <a href="#" class="nav-link" data-page="applications">
+            <i class="fa-solid fa-file-lines"></i>
+            <span>Applications</span>
+        </a>
+
+        <p class="menu-title">MANAGEMENT</p>
+
+        <a href="#" class="nav-link" data-page="analytics">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>Analytics</span>
+        </a>
+
+        <a href="#" class="nav-link" data-page="notifications">
+            <i class="fa-solid fa-bell"></i>
+            <span>Notifications</span>
+            <b class="notification-count">3</b>
+        </a>
+
+        <a href="#" class="nav-link" data-page="settings">
+            <i class="fa-solid fa-gear"></i>
+            <span>Settings</span>
+        </a>
+
+    </nav>
+
+    <div class="sidebar-bottom">
+
+        <div class="help-box">
+            <i class="fa-solid fa-circle-question"></i>
+            <div>
+                <strong>Need Help?</strong>
+                <p>Contact placement team</p>
+            </div>
+        </div>
+
+        <div class="profile-mini">
+            <div class="avatar">DK</div>
+
+            <div>
+                <strong>Dhanush</strong>
+                <p>Student</p>
+            </div>
+
+            <i class="fa-solid fa-ellipsis"></i>
+        </div>
+
+    </div>
+
+</aside>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="main">
+
+    <!-- HEADER -->
+
+    <header class="topbar">
+
+        <button class="mobile-menu" id="mobileMenu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div class="page-heading">
+            <h1 id="pageTitle">Dashboard</h1>
+            <p id="pageSubtitle">
+                Welcome back! Here's what's happening with placements.
+            </p>
+        </div>
+
+        <div class="header-actions">
+
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="globalSearch"
+                       placeholder="Search anything...">
+            </div>
+
+            <button class="icon-btn theme-btn" id="themeToggle">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+
+            <button class="icon-btn notification-btn">
+                <i class="fa-regular fa-bell"></i>
+                <span></span>
+            </button>
+
+            <div class="user-profile">
+                <div class="avatar">DK</div>
+
+                <div class="user-info">
+                    <strong>Dhanush K</strong>
+                    <small>Student</small>
+                </div>
+
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= PAGE CONTENT ================= -->
+
+    <section class="content" id="content">
+
+        <!-- DASHBOARD -->
+
+        <div class="page active-page" id="dashboard">
+
+            <div class="welcome-banner">
+
+                <div>
+                    <span class="welcome-tag">PLACEMENT SEASON 2026</span>
+
+                    <h2>Build Your Career With <span>PlaceHub</span></h2>
+
+                    <p>
+                        Discover opportunities, connect with companies,
+                        and take the next step toward your dream career.
+                    </p>
+
+                    <button class="primary-btn">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        Explore Opportunities
+                    </button>
+                </div>
+
+                <div class="banner-icon">
+                    <i class="fa-solid fa-rocket"></i>
+                </div>
+
+            </div>
+
+
+            <!-- STAT CARDS -->
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-icon blue">
+                        <i class="fa-solid fa-user-graduate"></i>
+                    </div>
+
+                    <div>
+                        <p>Total Students</p>
+                        <h2>1,248</h2>
+                        <small class="positive">
+                            <i class="fa-solid fa-arrow-up"></i>
+                            12.5% this year
+                        </small>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon purple">
+                        <i class="fa-solid fa-building"></i>
+                    </div>
+
+                    <div>
+                        <p>Partner Companies</p>
+                        <h2>86</h2>
+                        <small class="positive">
+                            <i class="fa-solid fa-arrow-up"></i>
+                            8 new this month
+                        </small>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon green">
+                        <i class="fa-solid fa-user-check"></i>
+                    </div>
+
+                    <div>
+                        <p>Students Placed</p>
+                        <h2>742</h2>
+                        <small class="positive">
+                            <i class="fa-solid fa-arrow-up"></i>
+                            18.2% increase
+                        </small>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon orange">
+                        <i class="fa-solid fa-indian-rupee-sign"></i>
+                    </div>
+
+                    <div>
+                        <p>Highest Package</p>
+                        <h2>₹24 LPA</h2>
+                        <small>Adobe Technologies</small>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- DASHBOARD GRID -->
+
+            <div class="dashboard-grid">
+
+                <!-- JOBS -->
+
+                <div class="card jobs-card">
+
+                    <div class="card-header">
+                        <div>
+                            <h3>Latest Opportunities</h3>
+                            <p>Recently posted job openings</p>
+                        </div>
+
+                        <button class="text-btn"
+                                onclick="showPage('jobs')">
+                            View All
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+
+
+                    <div class="job-list">
+
+                        <div class="job-item">
+
+                            <div class="company-logo microsoft">
+                                M
+                            </div>
+
+                            <div class="job-info">
+                                <h4>Software Developer</h4>
+                                <p>Microsoft · Chennai</p>
+                            </div>
+
+                            <div class="job-package">
+                                <strong>₹12 LPA</strong>
+                                <span>Full Time</span>
+                            </div>
+
+                            <button class="apply-btn">
+                                Apply
+                            </button>
+
+                        </div>
+
+
+                        <div class="job-item">
+
+                            <div class="company-logo amazon">
+                                <i class="fa-brands fa-amazon"></i>
+                            </div>
+
+                            <div class="job-info">
+                                <h4>Cloud Engineer</h4>
+                                <p>Amazon · Bangalore</p>
+                            </div>
+
+                            <div class="job-package">
+                                <strong>₹15 LPA</strong>
+                                <span>Full Time</span>
+                            </div>
+
+                            <button class="apply-btn">
+                                Apply
+                            </button>
+
+                        </div>
+
+
+                        <div class="job-item">
+
+                            <div class="company-logo tcs">
+                                TCS
+                            </div>
+
+                            <div class="job-info">
+                                <h4>Graduate Engineer</h4>
+                                <p>TCS · Coimbatore</p>
+                            </div>
+
+                            <div class="job-package">
+                                <strong>₹7.5 LPA</strong>
+                                <span>Full Time</span>
+                            </div>
+
+                            <button class="apply-btn">
+                                Apply
+                            </button>
+
+                        </div>
+
+
+                        <div class="job-item">
+
+                            <div class="company-logo google">
+                                G
+                            </div>
+
+                            <div class="job-info">
+                                <h4>AI/ML Intern</h4>
+                                <p>Google · Hyderabad</p>
+                            </div>
+
+                            <div class="job-package">
+                                <strong>₹10 LPA</strong>
+                                <span>Internship</span>
+                            </div>
+
+                            <button class="apply-btn">
+                                Apply
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- UPCOMING DRIVES -->
+
+                <div class="card drives-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h3>Upcoming Drives</h3>
+                            <p>Don't miss these opportunities</p>
+                        </div>
+
+                        <button class="more-btn">
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </button>
+
+                    </div>
+
+
+                    <div class="drive-list">
+
+                        <div class="drive-item">
+
+                            <div class="date-box">
+                                <strong>05</strong>
+                                <span>SEP</span>
+                            </div>
+
+                            <div>
+                                <h4>Infosys Recruitment</h4>
+                                <p>
+                                    <i class="fa-regular fa-clock"></i>
+                                    10:00 AM
+                                </p>
+                            </div>
+
+                            <span class="status upcoming">
+                                Upcoming
+                            </span>
+
+                        </div>
+
+
+                        <div class="drive-item">
+
+                            <div class="date-box">
+                                <strong>08</strong>
+                                <span>SEP</span>
+                            </div>
+
+                            <div>
+                                <h4>Accenture Drive</h4>
+                                <p>
+                                    <i class="fa-regular fa-clock"></i>
+                                    09:30 AM
+                                </p>
+                            </div>
+
+                            <span class="status upcoming">
+                                Upcoming
+                            </span>
+
+                        </div>
+
+
+                        <div class="drive-item">
+
+                            <div class="date-box">
+                                <strong>12</strong>
+                                <span>SEP</span>
+                            </div>
+
+                            <div>
+                                <h4>Wipro Campus Drive</h4>
+                                <p>
+                                    <i class="fa-regular fa-clock"></i>
+                                    11:00 AM
+                                </p>
+                            </div>
+
+                            <span class="status upcoming">
+                                Upcoming
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- APPLICATIONS -->
+
+            <div class="card applications-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h3>Recent Applications</h3>
+                        <p>Track your latest applications</p>
+                    </div>
+
+                    <button class="text-btn"
+                            onclick="showPage('applications')">
+                        View All
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Company</th>
+                                <th>Position</th>
+                                <th>Applied Date</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+                                    <div class="table-company">
+                                        <div class="small-logo">T</div>
+                                        TCS
+                                    </div>
+                                </td>
+
+                                <td>Software Engineer</td>
+
+                                <td>28 Aug 2026</td>
+
+                                <td>
+                                    <span class="status selected">
+                                        Shortlisted
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <button class="view-btn">
+                                        View
+                                    </button>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <div class="table-company">
+                                        <div class="small-logo">A</div>
+                                        Accenture
+                                    </div>
+                                </td>
+
+                                <td>Associate Developer</td>
+
+                                <td>25 Aug 2026</td>
+
+                                <td>
+                                    <span class="status review">
+                                        Under Review
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <button class="view-btn">
+                                        View
+                                    </button>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <div class="table-company">
+                                        <div class="small-logo">I</div>
+                                        Infosys
+                                    </div>
+                                </td>
+
+                                <td>System Engineer</td>
+
+                                <td>20 Aug 2026</td>
+
+                                <td>
+                                    <span class="status rejected">
+                                        Not Selected
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <button class="view-btn">
+                                        View
+                                    </button>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- STUDENTS -->
+
+        <div class="page" id="students">
+
+            <div class="section-top">
+
+                <div>
+                    <h2>Student Management</h2>
+                    <p>Manage student profiles and placement eligibility.</p>
+                </div>
+
+                <button class="primary-btn">
+                    <i class="fa-solid fa-plus"></i>
+                    Add Student
+                </button>
+
+            </div>
+
+
+            <div class="filter-bar">
+
+                <div class="search-input">
+                    <i class="fa-solid fa-search"></i>
+                    <input type="text"
+                           placeholder="Search students...">
+                </div>
+
+                <select>
+                    <option>All Departments</option>
+                    <option>Computer Science</option>
+                    <option>Artificial Intelligence</option>
+                    <option>Information Technology</option>
+                    <option>Electronics</option>
+                </select>
+
+                <select>
+                    <option>All Status</option>
+                    <option>Placed</option>
+                    <option>Looking for Job</option>
+                    <option>Not Eligible</option>
+                </select>
+
+            </div>
+
+
+            <div class="student-grid">
+
+                <div class="student-card">
+                    <div class="student-avatar">AK</div>
+                    <h3>Arun Kumar</h3>
+                    <p>BCA Artificial Intelligence</p>
+                    <span>CGPA: 8.7</span>
+
+                    <div class="student-footer">
+                        <small>Eligible</small>
+                        <button>View Profile</button>
+                    </div>
+                </div>
+
+
+                <div class="student-card">
+                    <div class="student-avatar">RP</div>
+                    <h3>Rahul Prakash</h3>
+                    <p>B.Tech Computer Science</p>
+                    <span>CGPA: 9.1</span>
+
+                    <div class="student-footer">
+                        <small>Placed</small>
+                        <button>View Profile</button>
+                    </div>
+                </div>
+
+
+                <div class="student-card">
+                    <div class="student-avatar">SK</div>
+                    <h3>Sanjay Kumar</h3>
+                    <p>BCA AI</p>
+                    <span>CGPA: 8.3</span>
+
+                    <div class="student-footer">
+                        <small>Eligible</small>
+                        <button>View Profile</button>
+                    </div>
+                </div>
+
+
+                <div class="student-card">
+                    <div class="student-avatar">PM</div>
+                    <h3>Priya Menon</h3>
+                    <p>B.Sc Computer Science</p>
+                    <span>CGPA: 9.4</span>
+
+                    <div class="student-footer">
+                        <small>Placed</small>
+                        <button>View Profile</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- COMPANIES -->
+
+        <div class="page" id="companies">
+
+            <div class="section-top">
+
+                <div>
+                    <h2>Partner Companies</h2>
+                    <p>Companies participating in campus placements.</p>
+                </div>
+
+                <button class="primary-btn">
+                    <i class="fa-solid fa-plus"></i>
+                    Add Company
+                </button>
+
+            </div>
+
+
+            <div class="company-grid">
+
+                <div class="company-card">
+                    <div class="company-large microsoft">M</div>
+                    <h3>Microsoft</h3>
+                    <p>Technology</p>
+                    <span>12 Open Positions</span>
+                    <button>View Company</button>
+                </div>
+
+                <div class="company-card">
+                    <div class="company-large amazon">
+                        <i class="fa-brands fa-amazon"></i>
+                    </div>
+                    <h3>Amazon</h3>
+                    <p>E-Commerce & Cloud</p>
+                    <span>8 Open Positions</span>
+                    <button>View Company</button>
+                </div>
+
+                <div class="company-card">
+                    <div class="company-large tcs">TCS</div>
+                    <h3>TCS</h3>
+                    <p>IT Services</p>
+                    <span>15 Open Positions</span>
+                    <button>View Company</button>
+                </div>
+
+                <div class="company-card">
+                    <div class="company-large google">G</div>
+                    <h3>Google</h3>
+                    <p>Technology</p>
+                    <span>5 Open Positions</span>
+                    <button>View Company</button>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- JOBS -->
+
+        <div class="page" id="jobs">
+
+            <div class="section-top">
+
+                <div>
+                    <h2>Job Opportunities</h2>
+                    <p>Find your next career opportunity.</p>
+                </div>
+
+                <button class="primary-btn">
+                    <i class="fa-solid fa-plus"></i>
+                    Post Job
+                </button>
+
+            </div>
+
+
+            <div class="job-grid">
+
+                <div class="job-card">
+
+                    <div class="job-card-top">
+                        <div class="company-large microsoft">M</div>
+                        <span class="job-type">Full Time</span>
+                    </div>
+
+                    <h3>Software Developer</h3>
+                    <p>Microsoft</p>
+
+                    <div class="job-details">
+                        <span>
+                            <i class="fa-solid fa-location-dot"></i>
+                            Chennai
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-indian-rupee-sign"></i>
+                            12 LPA
+                        </span>
+                    </div>
+
+                    <button class="primary-btn full">
+                        Apply Now
+                    </button>
+
+                </div>
+
+
+                <div class="job-card">
+
+                    <div class="job-card-top">
+                        <div class="company-large amazon">
+                            <i class="fa-brands fa-amazon"></i>
+                        </div>
+                        <span class="job-type">Full Time</span>
+                    </div>
+
+                    <h3>Cloud Engineer</h3>
+                    <p>Amazon</p>
+
+                    <div class="job-details">
+                        <span>
+                            <i class="fa-solid fa-location-dot"></i>
+                            Bangalore
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-indian-rupee-sign"></i>
+                            15 LPA
+                        </span>
+                    </div>
+
+                    <button class="primary-btn full">
+                        Apply Now
+                    </button>
+
+                </div>
+
+
+                <div class="job-card">
+
+                    <div class="job-card-top">
+                        <div class="company-large tcs">TCS</div>
+                        <span class="job-type">Full Time</span>
+                    </div>
+
+                    <h3>Graduate Engineer</h3>
+                    <p>TCS</p>
+
+                    <div class="job-details">
+                        <span>
+                            <i class="fa-solid fa-location-dot"></i>
+                            Coimbatore
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-indian-rupee-sign"></i>
+                            7.5 LPA
+                        </span>
+                    </div>
+
+                    <button class="primary-btn full">
+                        Apply Now
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- DRIVES -->
+
+        <div class="page" id="drives">
+
+            <div class="section-top">
+
+                <div>
+                    <h2>Placement Drives</h2>
+                    <p>Upcoming and completed campus recruitment drives.</p>
+                </div>
+
+                <button class="primary-btn">
+                    <i class="fa-solid fa-plus"></i>
+                    Schedule Drive
+                </button>
+
+            </div>
+
+
+            <div class="drive-full-list">
+
+                <div class="drive-full-card">
+
+                    <div class="big-date">
+                        <strong>05</strong>
+                        <span>SEP</span>
+                    </div>
+
+                    <div class="drive-main">
+                        <h3>Infosys Recruitment Drive</h3>
+
+                        <p>
+                            <i class="fa-regular fa-clock"></i>
+                            10:00 AM - 04:00 PM
+                        </p>
+
+                        <p>
+                            <i class="fa-solid fa-location-dot"></i>
+                            Main Auditorium
+                        </p>
+                    </div>
+
+                    <span class="status upcoming">Upcoming</span>
+
+                    <button class="view-btn">Details</button>
+
+                </div>
+
+
+                <div class="drive-full-card">
+
+                    <div class="big-date">
+                        <strong>08</strong>
+                        <span>SEP</span>
+                    </div>
+
+                    <div class="drive-main">
+                        <h3>Accenture Campus Drive</h3>
+
+                        <p>
+                            <i class="fa-regular fa-clock"></i>
+                            09:30 AM - 03:30 PM
+                        </p>
+
+                        <p>
+                            <i class="fa-solid fa-location-dot"></i>
+                            Seminar Hall
+                        </p>
+                    </div>
+
+                    <span class="status upcoming">Upcoming</span>
+
+                    <button class="view-btn">Details</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- APPLICATIONS -->
+
+        <div class="page" id="applications">
+
+            <div class="section-top">
+
+                <div>
+                    <h2>Applications</h2>
+                    <p>Track and manage student job applications.</p>
+                </div>
+
+                <button class="primary-btn">
+                    <i class="fa-solid fa-download"></i>
+                    Export Report
+                </button>
+
+            </div>
+
+
+            <div class="application-stats">
+
+                <div>
+                    <strong>24</strong>
+                    <span>Total Applied</span>
+                </div>
+
+                <div>
+                    <strong>12</strong>
+                    <span>Shortlisted</span>
+                </div>
+
+                <div>
+                    <strong>7</strong>
+                    <span>Interview</span>
+                </div>
+
+                <div>
+                    <strong>5</strong>
+                    <span>Selected</span>
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Student</th>
+                                <th>Company</th>
+                                <th>Position</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>Arun Kumar</td>
+                                <td>Microsoft</td>
+                                <td>Software Developer</td>
+                                <td>30 Aug 2026</td>
+                                <td>
+                                    <span class="status selected">
+                                        Shortlisted
+                                    </span>
+                                </td>
+                                <td>
+                                    <button class="view-btn">View</button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Rahul Prakash</td>
+                                <td>Amazon</td>
+                                <td>Cloud Engineer</td>
+                                <td>29 Aug 2026</td>
+                                <td>
+                                    <span class="status review">
+                                        Interview
+                                    </span>
+                                </td>
+                                <td>
+                                    <button class="view-btn">View</button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ANALYTICS -->
+
+        <div class="page" id="analytics">
+
+            <div class="section-top">
+
+                <div>
+                    <h2>Placement Analytics</h2>
+                    <p>Analyze placement performance and trends.</p>
+                </div>
+
+                <select class="year-select">
+                    <option>2026</option>
+                    <option>2025</option>
+                    <option>2024</option>
+                </select>
+
+            </div>
+
+
+            <div class="analytics-grid">
+
+                <div class="analytics-card">
+                    <h3>Placement Rate</h3>
+
+                    <div class="circle-progress">
+                        <span>78%</span>
+                    </div>
+
+                    <p>Overall placement percentage</p>
+                </div>
+
+
+                <div class="analytics-card">
+                    <h3>Average Package</h3>
+
+                    <div class="analytics-number">
+                        ₹6.8 <small>LPA</small>
+                    </div>
+
+                    <div class="progress">
+                        <span style="width:68%"></span>
+                    </div>
+
+                    <p>Compared with previous year</p>
+                </div>
+
+
+                <div class="analytics-card">
+                    <h3>Total Offers</h3>
+
+                    <div class="analytics-number">
+                        892
+                    </div>
+
+                    <div class="progress">
+                        <span style="width:82%"></span>
+                    </div>
+
+                    <p>Across all departments</p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- NOTIFICATIONS -->
+
+        <div class="page" id="notifications">
+
+            <div class="section-top">
+
+                <div>
+                    <h2>Notifications</h2>
+                    <p>Stay updated with placement activities.</p>
+                </div>
+
+                <button class="text-btn">
+                    Mark all as read
+                </button>
+
+            </div>
+
+
+            <div class="notification-list">
+
+                <div class="notification-item unread">
+
+                    <div class="notification-icon blue">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+
+                    <div>
+                        <h3>New job opportunity available</h3>
+                        <p>
+                            Microsoft has posted a new Software Developer
+                            position.
+                        </p>
+                        <small>10 minutes ago</small>
+                    </div>
+
+                </div>
+
+
+                <div class="notification-item unread">
+
+                    <div class="notification-icon green">
+                        <i class="fa-solid fa-calendar"></i>
+                    </div>
+
+                    <div>
+                        <h3>Placement drive reminder</h3>
+                        <p>
+                            Infosys recruitment drive is scheduled for
+                            September 5.
+                        </p>
+                        <small>2 hours ago</small>
+                    </div>
+
+                </div>
+
+
+                <div class="notification-item">
+
+                    <div class="notification-icon purple">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+
+                    <div>
+                        <h3>Application status updated</h3>
+                        <p>
+                            Your application has been shortlisted.
+                        </p>
+                        <small>Yesterday</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SETTINGS -->
+
+        <div class="page" id="settings">
+
+            <div class="section-top">
+
+                <div>
+                    <h2>Settings</h2>
+                    <p>Manage your PlaceHub preferences.</p>
+                </div>
+
+            </div>
+
+
+            <div class="settings-card">
+
+                <div class="settings-section">
+
+                    <h3>Account Settings</h3>
+
+                    <div class="setting-row">
+                        <div>
+                            <strong>Profile Visibility</strong>
+                            <p>Allow companies to view your profile.</p>
+                        </div>
+
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span></span>
+                        </label>
+                    </div>
+
+
+                    <div class="setting-row">
+                        <div>
+                            <strong>Email Notifications</strong>
+                            <p>Receive updates about job opportunities.</p>
+                        </div>
+
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span></span>
+                        </label>
+                    </div>
+
+
+                    <div class="setting-row">
+                        <div>
+                            <strong>Placement Alerts</strong>
+                            <p>Get notified about upcoming drives.</p>
+                        </div>
+
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span></span>
+                        </label>
+                    </div>
+
+                </div>
+
+
+                <div class="settings-section">
+
+                    <h3>Personal Information</h3>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" value="Dhanush K">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" value="dhanush@example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Department</label>
+                            <input type="text"
+                                   value="BCA Artificial Intelligence">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="text" value="+91 XXXXX XXXXX">
+                        </div>
+
+                    </div>
+
+                    <button class="primary-btn">
+                        Save Changes
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- TOAST -->
+
+<div class="toast" id="toast">
+
+    <i class="fa-solid fa-circle-check"></i>
+
+    <div>
+        <strong>Success!</strong>
+        <p id="toastMessage">Action completed successfully.</p>
+    </div>
+
+</div>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>

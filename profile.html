@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>PlaceHub | My Profile</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet"
+          href="profile.css">
+
+</head>
+
+
+<body>
+
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+
+        <div>
+            <h2>Place<span>Hub</span></h2>
+            <p>Placement Portal</p>
+        </div>
+
+    </div>
+
+
+    <nav>
+
+        <a href="index.html">
+            <i class="fa-solid fa-chart-pie"></i>
+            Dashboard
+        </a>
+
+        <a href="index.html">
+            <i class="fa-solid fa-briefcase"></i>
+            Job Opportunities
+        </a>
+
+        <a href="index.html">
+            <i class="fa-solid fa-calendar-days"></i>
+            Placement Drives
+        </a>
+
+        <a href="index.html">
+            <i class="fa-solid fa-file-lines"></i>
+            Applications
+        </a>
+
+        <a href="profile.html" class="active">
+            <i class="fa-solid fa-user"></i>
+            My Profile
+        </a>
+
+        <a href="index.html">
+            <i class="fa-solid fa-gear"></i>
+            Settings
+        </a>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+        <div class="help">
+
+            <i class="fa-solid fa-circle-question"></i>
+
+            <div>
+                <strong>Need Help?</strong>
+                <p>Contact placement team</p>
+            </div>
+
+        </div>
+
+
+        <button id="logoutBtn"
+                class="logout">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            Logout
+
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- MAIN -->
+
+<main class="main">
+
+
+    <!-- TOPBAR -->
+
+    <header class="topbar">
+
+        <div>
+
+            <h1>My Profile</h1>
+
+            <p>
+                Manage your personal and academic information.
+            </p>
+
+        </div>
+
+
+        <div class="top-actions">
+
+            <button>
+                <i class="fa-regular fa-bell"></i>
+            </button>
+
+            <div class="top-avatar">
+                DK
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- CONTENT -->
+
+    <section class="content">
+
+
+        <!-- PROFILE HEADER -->
+
+        <div class="profile-header">
+
+            <div class="profile-main">
+
+                <div class="profile-picture">
+
+                    <span id="profileInitials">
+                        DK
+                    </span>
+
+                    <button
+                        class="camera-btn"
+                        id="photoButton">
+
+                        <i class="fa-solid fa-camera"></i>
+
+                    </button>
+
+                </div>
+
+
+                <div class="profile-title">
+
+                    <span class="verified">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Student
+                    </span>
+
+                    <h2 id="profileName">
+                        Dhanush K
+                    </h2>
+
+                    <p>
+                        BCA Artificial Intelligence
+                    </p>
+
+                    <span class="student-id">
+                        Student ID: PH2026AI001
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <button class="edit-btn"
+                    id="editProfile">
+
+                <i class="fa-solid fa-pen"></i>
+
+                Edit Profile
+
+            </button>
+
+        </div>
+
+
+        <!-- PROFILE GRID -->
+
+        <div class="profile-grid">
+
+
+            <!-- PERSONAL INFO -->
+
+            <div class="profile-card">
+
+                <div class="card-title">
+
+                    <div>
+                        <h3>Personal Information</h3>
+                        <p>Your basic personal details</p>
+                    </div>
+
+                    <i class="fa-solid fa-user"></i>
+
+                </div>
+
+
+                <div class="info-grid">
+
+                    <div class="info-item">
+
+                        <span>Full Name</span>
+
+                        <strong>
+                            Dhanush K
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <span>Email Address</span>
+
+                        <strong>
+                            student@placehub.com
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <span>Phone Number</span>
+
+                        <strong>
+                            +91 XXXXX XXXXX
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <span>Date of Birth</span>
+
+                        <strong>
+                            15 June 2005
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <span>Gender</span>
+
+                        <strong>
+                            Male
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <span>Location</span>
+
+                        <strong>
+                            Tamil Nadu, India
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACADEMIC -->
+
+            <div class="profile-card">
+
+                <div class="card-title">
+
+                    <div>
+                        <h3>Academic Information</h3>
+                        <p>Your educational details</p>
+                    </div>
+
+                    <i class="fa-solid fa-graduation-cap"></i>
+
+                </div>
+
+
+                <div class="info-grid">
+
+                    <div class="info-item">
+
+                        <span>Course</span>
+
+                        <strong>
+                            BCA
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <span>Specialization</span>
+
+                        <strong>
+                            Artificial Intelligence
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <span>Current Year</span>
+
+                        <strong>
+                            Final Year
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <span>CGPA</span>
+
+                        <strong class="highlight">
+                            8.7 / 10
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <span>Graduation Year</span>
+
+                        <strong>
+                            2027
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <span>Placement Status</span>
+
+                        <strong class="available">
+                            Available
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SKILLS -->
+
+            <div class="profile-card">
+
+                <div class="card-title">
+
+                    <div>
+                        <h3>Skills</h3>
+                        <p>Your technical skills</p>
+                    </div>
+
+                    <i class="fa-solid fa-code"></i>
+
+                </div>
+
+
+                <div class="skills">
+
+                    <span>Python</span>
+
+                    <span>Java</span>
+
+                    <span>HTML</span>
+
+                    <span>CSS</span>
+
+                    <span>JavaScript</span>
+
+                    <span>SQL</span>
+
+                    <span>Machine Learning</span>
+
+                    <span>Data Analytics</span>
+
+                </div>
+
+
+                <button class="add-skill">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Add Skill
+
+                </button>
+
+            </div>
+
+
+            <!-- RESUME -->
+
+            <div class="profile-card">
+
+                <div class="card-title">
+
+                    <div>
+                        <h3>Resume</h3>
+                        <p>Upload your latest resume</p>
+                    </div>
+
+                    <i class="fa-solid fa-file-pdf"></i>
+
+                </div>
+
+
+                <div class="resume-box">
+
+                    <div class="resume-icon">
+                        <i class="fa-solid fa-file-pdf"></i>
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Dhanush_K_Resume.pdf
+                        </strong>
+
+                        <p>
+                            Uploaded 2 days ago · 1.2 MB
+                        </p>
+
+                    </div>
+
+                    <button>
+                        <i class="fa-solid fa-download"></i>
+                    </button>
+
+                </div>
+
+
+                <button class="upload-btn">
+
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                    Upload New Resume
+
+                </button>
+
+            </div>
+
+
+            <!-- CAREER PREFERENCES -->
+
+            <div class="profile-card full-width">
+
+                <div class="card-title">
+
+                    <div>
+                        <h3>Career Preferences</h3>
+                        <p>
+                            Help companies understand your career interests.
+                        </p>
+                    </div>
+
+                    <i class="fa-solid fa-bullseye"></i>
+
+                </div>
+
+
+                <div class="preference-grid">
+
+                    <div>
+
+                        <span>Preferred Role</span>
+
+                        <strong>
+                            Software Developer
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Preferred Location</span>
+
+                        <strong>
+                            Chennai / Bangalore
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Expected Package</span>
+
+                        <strong>
+                            ₹6 - ₹12 LPA
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Work Preference</span>
+
+                        <strong>
+                            Full Time
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+</main>
+
+
+<!-- EDIT MODAL -->
+
+<div class="modal" id="profileModal">
+
+    <div class="modal-card">
+
+        <button class="close-modal"
+                id="closeModal">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+
+        <h2>Edit Profile</h2>
+
+        <p>
+            Update your personal information.
+        </p>
+
+
+        <form id="profileForm">
+
+            <label>
+                Full Name
+                <input
+                    type="text"
+                    id="editName"
+                    value="Dhanush K">
+            </label>
+
+
+            <label>
+                Phone Number
+                <input
+                    type="text"
+                    value="+91 XXXXX XXXXX">
+            </label>
+
+
+            <label>
+                Preferred Role
+                <input
+                    type="text"
+                    value="Software Developer">
+            </label>
+
+
+            <button
+                type="submit"
+                class="save-btn">
+
+                Save Changes
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<div class="toast"
+     id="toast">
+
+    <i class="fa-solid fa-circle-check"></i>
+
+    <span>
+        Changes saved successfully!
+    </span>
+
+</div>
+
+
+<script src="profile.js"></script>
+
+</body>
+</html>
