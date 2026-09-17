@@ -81,6 +81,11 @@
             <span>Settings</span>
         </a>
 
+        <a href="profile.html" class="nav-link">
+            <i class="fa-solid fa-user"></i>
+            <span>My Profile</span>
+        </a>
+
     </nav>
 
     <div class="sidebar-bottom">
@@ -93,18 +98,16 @@
             </div>
         </div>
 
-        <div class="profile-mini">
-         <a href="profile.html" ></a>
-         
-            <div class="avatar">DK</div>
+        <a href="profile.html" class="profile-mini" id="sidebarProfileCard" title="View Profile">
+            <div class="avatar" id="sidebarUserAvatar">DK</div>
 
-            <div>
-                <strong>Dhanush</strong>
-                <p>Student</p>
+            <div class="profile-mini-info">
+                <strong id="sidebarUserName">Dhanush K</strong>
+                <p id="sidebarUserRole">Student</p>
             </div>
 
-            <i class="fa-solid fa-ellipsis"></i>
-        </div>
+            <i class="fa-solid fa-arrow-up-right-from-square profile-arrow"></i>
+        </a>
 
     </div>
 
@@ -147,15 +150,42 @@
                 <span></span>
             </button>
 
-            <div class="user-profile">
-                <div class="avatar">DK</div>
+            <!-- USER PROFILE & DROPDOWN -->
+            <div class="user-profile-wrapper">
+                <div class="user-profile" id="userProfileBtn" role="button" tabindex="0" title="Account Menu">
+                    <div class="avatar" id="topbarUserAvatar">DK</div>
 
-                <div class="user-info">
-                    <strong>Dhanush K</strong>
-                    <small>Student</small>
+                    <div class="user-info">
+                        <strong id="topbarUserName">Dhanush K</strong>
+                        <small id="topbarUserRole">Student</small>
+                    </div>
+
+                    <i class="fa-solid fa-chevron-down" id="userMenuChevron"></i>
                 </div>
 
-                <i class="fa-solid fa-chevron-down"></i>
+                <div class="user-dropdown" id="userDropdown">
+                    <div class="dropdown-header">
+                        <div class="avatar" id="dropdownUserAvatar">DK</div>
+                        <div class="dropdown-user-info">
+                            <strong id="dropdownUserName">Dhanush K</strong>
+                            <p id="dropdownUserEmail">student@placehub.com</p>
+                        </div>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <a href="profile.html" class="dropdown-item">
+                        <i class="fa-solid fa-user"></i>
+                        <span>My Profile</span>
+                    </a>
+                    <a href="#" class="dropdown-item" id="dropdownSettingsBtn">
+                        <i class="fa-solid fa-gear"></i>
+                        <span>Account Settings</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <button type="button" class="dropdown-item logout-item" id="dropdownLogoutBtn">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <span>Logout</span>
+                    </button>
+                </div>
             </div>
 
         </div>
@@ -1282,28 +1312,29 @@
 
                         <div class="form-group">
                             <label>Full Name</label>
-                            <input type="text" value="Dhanush K">
+                            <input type="text" id="settingsFullName" value="Dhanush K">
                         </div>
 
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="email" value="dhanush@example.com">
+                            <input type="email" id="settingsEmail" value="student@placehub.com">
                         </div>
 
                         <div class="form-group">
                             <label>Department</label>
                             <input type="text"
+                                   id="settingsDepartment"
                                    value="BCA Artificial Intelligence">
                         </div>
 
                         <div class="form-group">
                             <label>Phone</label>
-                            <input type="text" value="+91 XXXXX XXXXX">
+                            <input type="text" id="settingsPhone" value="+91 98765 43210">
                         </div>
 
                     </div>
 
-                    <button class="primary-btn">
+                    <button class="primary-btn" id="settingsSaveBtn">
                         Save Changes
                     </button>
 

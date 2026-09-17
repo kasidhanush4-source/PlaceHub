@@ -129,7 +129,7 @@
                 <i class="fa-regular fa-bell"></i>
             </button>
 
-            <div class="top-avatar">
+            <div class="top-avatar" id="topAvatar">
                 DK
             </div>
 
@@ -170,14 +170,14 @@
 
                     <span class="verified">
                         <i class="fa-solid fa-circle-check"></i>
-                        Student
+                        <span id="profileBadgeRole">Student</span>
                     </span>
 
                     <h2 id="profileName">
                         Dhanush K
                     </h2>
 
-                    <p>
+                    <p id="profileDept">
                         BCA Artificial Intelligence
                     </p>
 
@@ -229,7 +229,7 @@
 
                         <span>Full Name</span>
 
-                        <strong>
+                        <strong id="profileFullName">
                             Dhanush K
                         </strong>
 
@@ -240,7 +240,7 @@
 
                         <span>Email Address</span>
 
-                        <strong>
+                        <strong id="profileEmail">
                             student@placehub.com
                         </strong>
 
@@ -251,8 +251,8 @@
 
                         <span>Phone Number</span>
 
-                        <strong>
-                            +91 XXXXX XXXXX
+                        <strong id="profilePhone">
+                            +91 98765 43210
                         </strong>
 
                     </div>
@@ -595,7 +595,8 @@
                 Phone Number
                 <input
                     type="text"
-                    value="+91 XXXXX XXXXX">
+                    id="editPhone"
+                    value="+91 98765 43210">
             </label>
 
 
@@ -603,6 +604,7 @@
                 Preferred Role
                 <input
                     type="text"
+                    id="editRole"
                     value="Software Developer">
             </label>
 

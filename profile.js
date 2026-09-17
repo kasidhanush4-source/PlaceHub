@@ -17,11 +17,35 @@ const profileForm =
 const editName =
     document.getElementById("editName");
 
+const editPhone =
+    document.getElementById("editPhone");
+
+const editRole =
+    document.getElementById("editRole");
+
 const profileName =
     document.getElementById("profileName");
 
+const profileFullName =
+    document.getElementById("profileFullName");
+
+const profileEmail =
+    document.getElementById("profileEmail");
+
+const profilePhone =
+    document.getElementById("profilePhone");
+
+const profileDept =
+    document.getElementById("profileDept");
+
+const profileBadgeRole =
+    document.getElementById("profileBadgeRole");
+
 const profileInitials =
     document.getElementById("profileInitials");
+
+const topAvatar =
+    document.getElementById("topAvatar");
 
 const logoutBtn =
     document.getElementById("logoutBtn");
@@ -57,21 +81,33 @@ const savedUser =
         "placehubUser"
     );
 
+let currentUser = {
+    name: "Dhanush K",
+    email: "student@placehub.com",
+    role: "Student",
+    department: "BCA Artificial Intelligence",
+    phone: "+91 98765 43210"
+};
 
 if (savedUser) {
-
-    const user =
-        JSON.parse(savedUser);
-
-    profileName.textContent =
-        user.name;
-
-    editName.value =
-        user.name;
-
-    updateInitials(user.name);
-
+    try {
+        currentUser = { ...currentUser, ...JSON.parse(savedUser) };
+    } catch (e) {
+        console.error(e);
+    }
 }
+
+if (profileName) profileName.textContent = currentUser.name;
+if (profileFullName) profileFullName.textContent = currentUser.name;
+if (editName) editName.value = currentUser.name;
+if (profileEmail) profileEmail.textContent = currentUser.email;
+if (profilePhone) profilePhone.textContent = currentUser.phone;
+if (editPhone) editPhone.value = currentUser.phone;
+if (profileDept) profileDept.textContent = currentUser.department;
+if (profileBadgeRole) profileBadgeRole.textContent = currentUser.role || "Student";
+if (editRole) editRole.value = currentUser.preferredRole || "Software Developer";
+
+updateInitials(currentUser.name);
 
 
 /* =========================================
@@ -130,51 +166,34 @@ profileForm.addEventListener(
 
         event.preventDefault();
 
-
         const newName =
             editName.value.trim();
 
-
         if (!newName) {
-
             return;
-
         }
 
+        const newPhone = editPhone ? editPhone.value.trim() : currentUser.phone;
+        const newRole = editRole ? editRole.value.trim() : currentUser.preferredRole;
 
-        profileName.textContent =
-            newName;
+        currentUser.name = newName;
+        if (newPhone) currentUser.phone = newPhone;
+        if (newRole) currentUser.preferredRole = newRole;
 
+        if (profileName) profileName.textContent = newName;
+        if (profileFullName) profileFullName.textContent = newName;
+        if (profilePhone) profilePhone.textContent = currentUser.phone;
 
         updateInitials(newName);
 
-
-        let user = {
-
-            name: newName,
-
-            email:
-                "student@placehub.com",
-
-            role:
-                "Student",
-
-            department:
-                "BCA Artificial Intelligence"
-
-        };
-
-
         localStorage.setItem(
             "placehubUser",
-            JSON.stringify(user)
+            JSON.stringify(currentUser)
         );
-
 
         profileModal.classList.remove(
             "show"
         );
-
 
         showToast(
             "Profile updated successfully!"
@@ -190,26 +209,21 @@ profileForm.addEventListener(
 
 function updateInitials(name) {
 
+    if (!name) return;
+
     const words =
-        name.split(" ");
+        name.trim().split(" ");
 
     let initials = "";
 
+    if (words.length === 1) {
+        initials = words[0].substring(0, 2).toUpperCase();
+    } else {
+        initials = (words[0][0] + words[words.length - 1][0]).toUpperCase();
+    }
 
-    words.forEach(word => {
-
-        if (word.length > 0) {
-
-            initials +=
-                word.charAt(0).toUpperCase();
-
-        }
-
-    });
-
-
-    profileInitials.textContent =
-        initials.substring(0, 2);
+    if (profileInitials) profileInitials.textContent = initials;
+    if (topAvatar) topAvatar.textContent = initials;
 
 }
 

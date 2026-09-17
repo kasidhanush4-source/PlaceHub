@@ -364,11 +364,32 @@ a {
 
     gap: 10px;
 
-    padding: 9px;
+    padding: 10px 12px;
 
-    border-radius: 10px;
+    border-radius: 12px;
 
-    background: rgba(255,255,255,.04);
+    background: rgba(255,255,255,.05);
+
+    text-decoration: none;
+
+    color: inherit;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+
+    border: 1px solid rgba(255, 255, 255, .04);
+}
+
+.profile-mini:hover {
+    background: rgba(91, 95, 240, .2);
+    border-color: rgba(91, 95, 240, .4);
+    transform: translateY(-1px);
+}
+
+.profile-mini-info {
+    flex: 1;
+    overflow: hidden;
 }
 
 
@@ -396,12 +417,17 @@ a {
     font-size: 12px;
 
     font-weight: 700;
+    flex-shrink: 0;
 }
 
 
 .profile-mini strong {
 
     font-size: 11px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
@@ -409,17 +435,24 @@ a {
 
     font-size: 9px;
 
-    color: #777c99;
+    color: #8f94b3;
 
     margin-top: 2px;
 }
 
 
-.profile-mini > i {
+.profile-mini .profile-arrow {
 
     margin-left: auto;
 
-    color: #777c99;
+    color: #858ab0;
+    font-size: 10px;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.profile-mini:hover .profile-arrow {
+    color: white;
+    transform: translate(2px, -2px);
 }
 
 
@@ -601,45 +634,158 @@ a {
 }
 
 
-.user-profile {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 9px;
-
-    padding-left: 10px;
-
-    border-left: 1px solid var(--border);
+.user-profile-wrapper {
+    position: relative;
 }
 
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 6px 10px 6px 12px;
+    border-left: 1px solid var(--border);
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.user-profile:hover {
+    background: rgba(91, 95, 240, 0.06);
+}
+
+.user-profile.active {
+    background: rgba(91, 95, 240, 0.1);
+}
 
 .user-info strong {
-
     display: block;
-
     font-size: 11px;
 }
 
-
 .user-info small {
-
     display: block;
-
     color: var(--muted);
-
     font-size: 9px;
-
     margin-top: 2px;
 }
 
-
 .user-profile > i {
-
     font-size: 9px;
-
     color: #8a8fa3;
+    transition: transform 0.25s ease;
+}
+
+.user-profile.active > i {
+    transform: rotate(180deg);
+}
+
+/* USER DROPDOWN */
+.user-dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 230px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 14px 35px rgba(27, 31, 65, 0.12);
+    padding: 8px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.user-dropdown.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 8px 10px;
+}
+
+.dropdown-user-info {
+    overflow: hidden;
+}
+
+.dropdown-user-info strong {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dropdown-user-info p {
+    font-size: 9px;
+    color: var(--muted);
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dropdown-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 4px 0 6px;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 9px 12px;
+    border: none;
+    background: transparent;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.dropdown-item i {
+    width: 16px;
+    font-size: 12px;
+    color: var(--muted);
+    transition: color 0.2s;
+}
+
+.dropdown-item:hover {
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+.dropdown-item:hover i {
+    color: var(--primary);
+}
+
+.dropdown-item.logout-item {
+    color: #e53e3e;
+}
+
+.dropdown-item.logout-item i {
+    color: #e53e3e;
+}
+
+.dropdown-item.logout-item:hover {
+    background: #fff0f0;
+    color: #c53030;
 }
 
 
@@ -2943,6 +3089,11 @@ body.dark .search-input input {
         grid-column: 2;
 
         text-align: left;
+    }
+
+    .user-dropdown {
+        width: 200px;
+        right: -10px;
     }
 
 }

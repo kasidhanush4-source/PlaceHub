@@ -452,9 +452,8 @@ globalSearch.addEventListener(
 ========================================= */
 
 const settingsSave =
-    document.querySelector(
-        "#settings .primary-btn"
-    );
+    document.getElementById("settingsSaveBtn") ||
+    document.querySelector("#settings .primary-btn");
 
 
 if (settingsSave) {
@@ -462,6 +461,19 @@ if (settingsSave) {
     settingsSave.addEventListener(
         "click",
         () => {
+            const fullName = document.getElementById("settingsFullName")?.value.trim();
+            const email = document.getElementById("settingsEmail")?.value.trim();
+            const dept = document.getElementById("settingsDepartment")?.value.trim();
+            const phone = document.getElementById("settingsPhone")?.value.trim();
+
+            let currentUser = JSON.parse(localStorage.getItem("placehubUser") || "{}");
+            if (fullName) currentUser.name = fullName;
+            if (email) currentUser.email = email;
+            if (dept) currentUser.department = dept;
+            if (phone) currentUser.phone = phone;
+
+            localStorage.setItem("placehubUser", JSON.stringify(currentUser));
+            applyUserProfile(currentUser);
 
             showToast(
                 "Profile settings saved successfully!"
@@ -556,14 +568,144 @@ switches.forEach(toggle => {
 
 
 /* =========================================
+   USER PROFILE & SESSION MANAGEMENT
+========================================= */
+
+function checkUserSession() {
+    const loggedIn = localStorage.getItem("placehubLoggedIn");
+    if (loggedIn !== "true") {
+        window.location.href = "login.html";
+        return null;
+    }
+
+    const savedUserStr = localStorage.getItem("placehubUser");
+    let user = {
+        name: "Dhanush K",
+        email: "student@placehub.com",
+        role: "Student",
+        department: "BCA Artificial Intelligence",
+        phone: "+91 98765 43210"
+    };
+
+    if (savedUserStr) {
+        try {
+            user = { ...user, ...JSON.parse(savedUserStr) };
+        } catch (e) {
+            console.error("Error parsing user from localStorage:", e);
+        }
+    }
+
+    return user;
+}
+
+function getInitials(name) {
+    if (!name) return "U";
+    const parts = name.trim().split(" ");
+    if (parts.length === 1) return parts[0].substring(0, 2).toUpperCase();
+    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+}
+
+function applyUserProfile(user) {
+    if (!user) return;
+
+    const initials = getInitials(user.name);
+
+    // Update Avatars
+    document.querySelectorAll("#sidebarUserAvatar, #topbarUserAvatar, #dropdownUserAvatar").forEach(el => {
+        el.textContent = initials;
+    });
+
+    // Update Names
+    const sidebarName = document.getElementById("sidebarUserName");
+    if (sidebarName) sidebarName.textContent = user.name;
+
+    const topbarName = document.getElementById("topbarUserName");
+    if (topbarName) topbarName.textContent = user.name;
+
+    const dropdownName = document.getElementById("dropdownUserName");
+    if (dropdownName) dropdownName.textContent = user.name;
+
+    // Update Roles
+    const sidebarRole = document.getElementById("sidebarUserRole");
+    if (sidebarRole) sidebarRole.textContent = user.role || "Student";
+
+    const topbarRole = document.getElementById("topbarUserRole");
+    if (topbarRole) topbarRole.textContent = user.role || "Student";
+
+    // Update Email
+    const dropdownEmail = document.getElementById("dropdownUserEmail");
+    if (dropdownEmail) dropdownEmail.textContent = user.email || "student@placehub.com";
+
+    // Populate Settings tab inputs
+    const settingsName = document.getElementById("settingsFullName");
+    if (settingsName) settingsName.value = user.name;
+
+    const settingsEmail = document.getElementById("settingsEmail");
+    if (settingsEmail) settingsEmail.value = user.email;
+
+    const settingsDept = document.getElementById("settingsDepartment");
+    if (settingsDept) settingsDept.value = user.department || "BCA Artificial Intelligence";
+
+    const settingsPhone = document.getElementById("settingsPhone");
+    if (settingsPhone) settingsPhone.value = user.phone || "+91 98765 43210";
+}
+
+
+/* =========================================
+   USER PROFILE DROPDOWN MENU
+========================================= */
+
+const userProfileBtn = document.getElementById("userProfileBtn");
+const userDropdown = document.getElementById("userDropdown");
+const dropdownSettingsBtn = document.getElementById("dropdownSettingsBtn");
+const dropdownLogoutBtn = document.getElementById("dropdownLogoutBtn");
+
+if (userProfileBtn && userDropdown) {
+    userProfileBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        userDropdown.classList.toggle("show");
+        userProfileBtn.classList.toggle("active");
+    });
+
+    document.addEventListener("click", (e) => {
+        if (!userProfileBtn.contains(e.target) && !userDropdown.contains(e.target)) {
+            userDropdown.classList.remove("show");
+            userProfileBtn.classList.remove("active");
+        }
+    });
+
+    if (dropdownSettingsBtn) {
+        dropdownSettingsBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            userDropdown.classList.remove("show");
+            userProfileBtn.classList.remove("active");
+            showPage("settings");
+        });
+    }
+
+    if (dropdownLogoutBtn) {
+        dropdownLogoutBtn.addEventListener("click", () => {
+            localStorage.removeItem("placehubLoggedIn");
+            showToast("Logging out...");
+            setTimeout(() => {
+                window.location.href = "login.html";
+            }, 800);
+        });
+    }
+}
+
+
+/* =========================================
    INITIALIZE
 ========================================= */
 
 document.addEventListener(
     "DOMContentLoaded",
     () => {
-
+        const user = checkUserSession();
+        if (user) {
+            applyUserProfile(user);
+        }
         showPage("dashboard");
-
     }
 );
