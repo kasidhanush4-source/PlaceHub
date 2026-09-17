@@ -2,15 +2,15 @@
    PLACEHUB LOGIN SYSTEM
 ========================================= */
 
-// FIREBASE CONFIGURATION
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "AIzaSyBltZ9sa1IFHEUwth7rJJL-hTOwn66dDfQ",
-    authDomain: "student-management-a85a7.firebaseapp.com",
-    projectId: "student-management-a85a7",
-    storageBucket: "student-management-a85a7.firebasestorage.app",
-    messagingSenderId: "1038849607691",
-    appId: "1:1038849607691:web:69e6a8ca3298bdbfe85f0e",
-    measurementId: "G-TZ5WHXNWHC"
+  apiKey: "AIzaSyBltZ9sa1IFHEUwth7rJJL-hTOwn66dDfQ",
+  authDomain: "student-management-a85a7.firebaseapp.com",
+  projectId: "student-management-a85a7",
+  storageBucket: "student-management-a85a7.firebasestorage.app",
+  messagingSenderId: "1038849607691",
+  appId: "1:1038849607691:web:69e6a8ca3298bdbfe85f0e",
+  measurementId: "G-TZ5WHXNWHC"
 };
 
 let auth = null;
