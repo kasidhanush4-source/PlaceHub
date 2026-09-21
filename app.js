@@ -685,6 +685,11 @@ if (userProfileBtn && userDropdown) {
 
     if (dropdownLogoutBtn) {
         dropdownLogoutBtn.addEventListener("click", () => {
+            if (typeof firebase !== "undefined" && firebase.auth) {
+                try {
+                    firebase.auth().signOut().catch(() => {});
+                } catch (e) {}
+            }
             localStorage.removeItem("placehubLoggedIn");
             showToast("Logging out...");
             setTimeout(() => {

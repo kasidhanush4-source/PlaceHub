@@ -115,7 +115,7 @@ loginForm.addEventListener("submit", (event) => {
         savedUser = JSON.parse(localStorage.getItem("placehubUser") || "null");
     } catch (e) {}
 
-    // Check preconfigured demo accounts or registered user
+    // Check preconfigured demo accounts or registered local user
     const isDemoMatch = (email === "student@placehub.com" || email === "dhanush@placehub.com") && pass === "123456";
     const isRegisteredMatch = savedUser && savedUser.email && savedUser.email.toLowerCase() === email.toLowerCase() && (savedUser.password ? savedUser.password === pass : pass === "123456");
 
@@ -135,6 +135,45 @@ loginForm.addEventListener("submit", (event) => {
         setTimeout(() => {
             window.location.href = "index.html";
         }, 1000);
+        return;
+    }
+
+    // Attempt Firebase Email/Password Sign-In
+    if (auth) {
+        showToast("Verifying with Firebase...");
+        auth.signInWithEmailAndPassword(email, pass)
+            .then((userCredential) => {
+                const fbUser = userCredential.user;
+                const userObj = {
+                    name: fbUser.displayName || email.split("@")[0],
+                    email: fbUser.email,
+                    role: "Student",
+                    department: "BCA Artificial Intelligence",
+                    phone: fbUser.phoneNumber || "+91 98765 43210"
+                };
+
+                localStorage.setItem("placehubLoggedIn", "true");
+                localStorage.setItem("placehubUser", JSON.stringify(userObj));
+
+                showToast("Firebase Login successful! Redirecting...");
+                setTimeout(() => {
+                    window.location.href = "index.html";
+                }, 1000);
+            })
+            .catch((error) => {
+                console.warn("Firebase Auth error:", error.code, error.message);
+                let msg = "Invalid email or password.";
+                if (error.code === "auth/user-not-found") {
+                    msg = "No account found with this email.";
+                } else if (error.code === "auth/wrong-password" || error.code === "auth/invalid-credential") {
+                    msg = "Incorrect password.";
+                } else if (error.code === "auth/invalid-email") {
+                    msg = "Please enter a valid email address.";
+                } else if (error.code === "auth/too-many-requests") {
+                    msg = "Too many attempts. Please try again later.";
+                }
+                showToast(msg);
+            });
     } else {
         showToast("Invalid email or password. Try student@placehub.com / 123456");
     }

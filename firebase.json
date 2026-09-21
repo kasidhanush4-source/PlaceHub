@@ -1,10 +1,14 @@
 {
   "hosting": {
-    "public": "new",
+    "public": ".",
+    "cleanUrls": true,
     "ignore": [
       "firebase.json",
+      ".firebaserc",
       "**/.*",
-      "**/node_modules/**"
+      "**/node_modules/**",
+      ".agents/**",
+      "new/**"
     ],
     "rewrites": [
       {
